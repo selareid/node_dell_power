@@ -44,6 +44,8 @@ function getPage(message) {
       <h1>${message}</h1>
        <a href="/on">Turn On</a>
         <a href="/off">Turn Off</a>
+
+        <script>setTimeout(() => { alert("Hello"); }, 3000);</script>
     </body>
   </html>`;
 }

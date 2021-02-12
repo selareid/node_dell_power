@@ -12,7 +12,7 @@ app.get('/on', (req, res) => {
 });
 
 app.get('/off', (req, res) => {
-  exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power off");
+  exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power soft");
   sendPageWithStatus(res);
 });
 

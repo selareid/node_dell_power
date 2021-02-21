@@ -10,13 +10,13 @@ app.get('/', (req, res) => {
 app.get('/on', (req, res) => {
   exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power on");
   sendPageWithStatus(res);
-  sendNotif("attemp to turn power on", 1);
+  sendNotif("attempt to turn power on", 1);
 });
 
 app.get('/off', (req, res) => {
   exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power soft");
   sendPageWithStatus(res);
-  sendNotif("attemp to turn power off", 5);
+  sendNotif("attempt to turn power off", 5);
 });
 
 http.listen(4949, function(){

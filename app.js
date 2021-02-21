@@ -24,7 +24,7 @@ http.listen(4949, function(){
 });
 
 function sendNotif(message) {
-  const url = "http://home.selareid.com:2828/message?token=AKuVAVper4EVwdG";
+  const url = "http://home.selareid.com:2828/message?token=<token>";
   const bodyFormData = {
     title: "Node Power Update",
     message: message,

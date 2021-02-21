@@ -10,25 +10,25 @@ app.get('/', (req, res) => {
 app.get('/on', (req, res) => {
   exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power on");
   sendPageWithStatus(res);
-  sendNotif("attemp to turn power on");
+  sendNotif("attemp to turn power on", 1);
 });
 
 app.get('/off', (req, res) => {
   exec("ipmitool -I lanplus -H 192.168.1.210  -U root -P calvin power soft");
   sendPageWithStatus(res);
-  sendNotif("attemp to turn power off");
+  sendNotif("attemp to turn power off", 5);
 });
 
 http.listen(4949, function(){
     console.log('listening on *:4949');
 });
 
-function sendNotif(message) {
+function sendNotif(message, priority=1) {
   const url = "http://home.selareid.com:2828/message?token=<token>";
   const bodyFormData = {
     title: "Node Power Update",
     message: message,
-    priority: 1,
+    priority: priority,
   };
 
   axios({
